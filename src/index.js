@@ -89,7 +89,7 @@ module.exports = (opts = {}) => {
         const resolvedResult = (typeof opts.resolve === 'function' && opts.resolve(file));
         const resolvedFile = resolvedResult instanceof Promise ? resolvedResult : Promise.resolve(resolvedResult);
 
-        return resolvedFile.then((f = file) => {
+        return resolvedFile.then((f) => {
           return loader.fetch.call(loader, f || file, relativeTo, depTrace);
         });
       });
